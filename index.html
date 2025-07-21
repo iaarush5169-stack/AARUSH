@@ -238,7 +238,7 @@
         if (notes[i].classList.contains("active")) {
           notes[i].classList.remove("active");
           gsap.set(notes[i], {
-            height: "30%",
+            height: "50%",
             clearProps: "all"
           });
         }
@@ -247,7 +247,7 @@
 
     function notes_ready() {
       gsap.to(".js-envelop-content", {
-        height: "160%",
+        height: "140%",
         duration: 0.5
       });
 
