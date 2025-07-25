@@ -160,25 +160,25 @@
     }
 
     .note__text {
-      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-family: "Helvetica Neue", cursive;
       padding: 1rem;
     }
 
     .note__text p {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       margin-bottom: 1rem;
       text-align: center;
     }
 
     @media (min-width: 300px) and (max-width: 600px) {
       .note__text p {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
       }
     }
 
     @media (min-width: 600px) {
       .note__text p {
-        font-size: 0.5rem;
+        font-size: 0.4rem;
       }
     }
 
@@ -292,7 +292,7 @@
     function set_up_paper() {
       var arr = [0, 0, 100, 0, 50, 61];
       gsap.set(".js-up-paper", {
-        bottom: "107%",
+        bottom: "97%",
         rotation: 180,
         zIndex: 200,
         clipPath: `polygon(${arr[0]}% ${arr[1]}%, ${arr[2]}% ${arr[3]}%, ${arr[4]}% ${arr[5]}%)`,
