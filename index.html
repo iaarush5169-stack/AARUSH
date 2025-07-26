@@ -2,13 +2,11 @@
 <html lang="en">
 
 <head>
- <title>From Aarush:)</title>
-
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Love Envelope</title>
- <style>
-  * {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Aarush :)</title>
+  <style>
+    * {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
@@ -25,35 +23,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-family: 'Helvetica Neue', sans-serif;
     }
 
     .envelop {
-      width: 15rem;
-      height: 10rem;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-
-    @media (min-width: 400px) and (max-width: 600px) {
-      .envelop {
-        width: 20rem;
-        height: 15rem;
-      }
-    }
-
-    @media (min-width: 600px) {
-      .envelop {
-        width: 25rem;
-        height: 20rem;
-      }
-    }
-
-    @media (min-width: 600px) and (min-height: 600px) {
-      .envelop {
-        bottom: 20%;
-      }
+      width: 90%;
+      max-width: 25rem;
+      height: auto;
+      position: relative;
+      aspect-ratio: 5 / 3;
     }
 
     .envelop__front-paper,
@@ -62,9 +40,9 @@
     .envelop__content {
       width: 100%;
       height: 100%;
+      position: absolute;
       bottom: 0;
       left: 0;
-      position: absolute;
     }
 
     .envelop__front-paper {
@@ -115,21 +93,48 @@
     }
 
     @media (max-width: 400px) {
+      .envelop {
+        max-width: 18rem;
+      }
+
+      .note__text p {
+        font-size: 0.75rem;
+        line-height: 1.2rem;
+      }
+
       .envelop__sticker,
       .envelop__false-sticker {
         background-size: 1.2rem;
       }
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 401px) and (max-width: 768px) {
+      .note__text p {
+        font-size: 0.85rem;
+        line-height: 1.3rem;
+      }
+
       .envelop__sticker,
       .envelop__false-sticker {
-        height: 15%;
+        background-size: 1.6rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .note__text p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+
+      .envelop__sticker,
+      .envelop__false-sticker {
+        background-size: 2rem;
       }
     }
 
     .envelop__content {
       z-index: 200;
+      overflow: hidden;
     }
 
     .love-notes {
@@ -138,48 +143,37 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
     .note {
       width: 95%;
-      height: 30%;
+      min-height: 30%;
+      max-height: 60%;
       background-color: #f9f9f9;
       position: absolute;
-      overflow: hidden;
+      overflow-y: auto;
       transition: height 0.5s, opacity 0.25s;
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      padding: 0.5rem;
     }
 
-    .note:nth-child(1) { bottom: 60%; }
-    .note:nth-child(2) { bottom: 40%; }
-    .note:nth-child(3) { bottom: 20%; }
+    .note:nth-child(1) { bottom: 65%; }
+    .note:nth-child(2) { bottom: 35%; }
+    .note:nth-child(3) { bottom: 5%; }
 
     .note:hover {
       cursor: pointer;
-      height: 45%;
+      height: 70%;
     }
 
     .note__text {
-      font-family: "Helvetica Neue", cursive;
-      padding: 1rem;
+      padding: 0.5rem;
+      width: 100%;
     }
 
     .note__text p {
-      font-size: 0.6rem;
-      margin-bottom: 1rem;
       text-align: center;
-    }
-
-    @media (min-width: 300px) and (max-width: 600px) {
-      .note__text p {
-        font-size: 0.65rem;
-      }
-    }
-
-    @media (min-width: 600px) {
-      .note__text p {
-        font-size: 0.4rem;
-      }
     }
 
     .scissors {
@@ -193,43 +187,40 @@
     .cursor {
       cursor: pointer;
     }
- </style>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
 <body class="scissors">
- <div class="envelop">
-  <div class="envelop__front-paper"></div>
-  <div class="envelop__back-paper"></div>
-  <div class="envelop__up-paper js-up-paper"></div>
-  <div class="envelop__sticker js-sticker"></div>
-  <div class="envelop__false-sticker"></div>
-  <div class="envelop__content js-envelop-content">
-   <div class="love-notes">
-    <div class="note js-note">
-     <div class="note__text">
-      <p>Hey Dear, <br> I don't know how to begin, but I'll try to speak from the heart. I've liked you for a long time not just for how you look, but for the person you are. Every time I see you smile or even walk by, it brightens my mood. I don't know if you've ever noticed, but you've been special to me for a while now.
-      </p>
-     </div>
+  <div class="envelop">
+    <div class="envelop__front-paper"></div>
+    <div class="envelop__back-paper"></div>
+    <div class="envelop__up-paper js-up-paper"></div>
+    <div class="envelop__sticker js-sticker"></div>
+    <div class="envelop__false-sticker"></div>
+    <div class="envelop__content js-envelop-content">
+      <div class="love-notes">
+        <div class="note js-note">
+          <div class="note__text">
+            <p>Hey Dear, <br> I don't know how to begin, but I'll try to speak from the heart. I've liked you for a long time not just for how you look, but for the person you are. Every time I see you smile or even walk by, it brightens my mood. I don't know if you've ever noticed, but you've been special to me for a while now.</p>
+          </div>
+        </div>
+        <div class="note js-note">
+          <div class="note__text">
+            <p>I know you've been ignoring me lately. Maybe you're busy, or maybe you just don't feel the same. And I understand. But I couldn't keep this inside anymore. I needed to tell you how I feel, even if you never reply. I'm not asking you to like me back right now. I just want you to know that someone here truly cares about you. I think about you, I respect you, and I really wish we could talk, laugh, and maybe spend time together. I believe there's something beautiful in honesty, and this is my honest feeling for you. I'm not perfect, and I don't want to disturb you. I just want one chance to show you who I really am, not just a crush, but someone who will always support, listen, and treat you with respect.</p>
+          </div>
+        </div>
+        <div class="note js-note">
+          <div class="note__text">
+            <p>If you ever feel like giving this a chance, even a small one, I promise I'll never make you regret it. And if you don't feel the same, that's okay too. I will never force anything. I'll quietly walk away with respect, but at least I'll be at peace knowing I tried. I never talked about you ever since we had our first conversation on 22nd July 2023 (Moral Science Period). But last month, Namish made me realise that my feelings will be my forever regret if I never try. Also, I am not that type of person like in 8th who really did such creepy things. Thank you for reading this.<br><br> Yours truly,<br> Aarush Gupta</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="note js-note">
-     <div class="note__text">
-      <p>I know you've been ignoring me lately. Maybe you're busy, or maybe you just don't feel the same. And I understand. But I couldn't keep this inside anymore. I needed to tell you how I feel, even if you never reply. I'm not asking you to like me back right now. I just want you to know that someone here truly cares about you. I think about you, I respect you, and I really wish we could talk, laugh, and maybe spend time together. I believe there's something beautiful in honesty, and this is my honest feeling for you. I'm not perfect, and I don't want to disturb you. I just want one chance to show you who I really am, not just a crush, but someone who will always support, listen, and treat you with respect</p>
-     </div>
-    </div>
-    <div class="note js-note">
-     <div class="note__text">
-      <p>If you ever feel like giving this a chance, even a small one, I promise I'll never make you regret it. And if you don't feel the same, that's okay too. I will never force anything. I'll quietly walk away with respect, but at least I'll be at peace knowing I tried. I never talked about you ever since we had our first conversation on 22th July 2023 (Moral Science Period) But last month Namish made me realise that my feelings will be my forever Regret that I never tried to be with you & also I am not that type of person as in 8th who really does such creepy Things Thank you for reading this.<br> Yours truly,<br> Aarush Gupta
-
-      </p>
-     </div>
-    </div>
-   </div>
   </div>
- </div>
 
- <script>
-  let mobile_media_query = window.matchMedia("(max-width: 400px)");
+  <script>
+    let mobile_media_query = window.matchMedia("(max-width: 400px)");
     let tablet_media_query = window.matchMedia("(min-width: 400px) and (max-width: 800px)");
     const notes = document.querySelectorAll(".js-note");
 
@@ -248,7 +239,7 @@
     function notes_ready() {
       gsap.to(".js-envelop-content", {
         height: "95%",
-        duration: 0.5 
+        duration: 0.5
       });
 
       for (let i = 0; i < notes.length; i++) {
@@ -320,7 +311,7 @@
 
     document.querySelector(".js-sticker").addEventListener("click", sticker);
     window.onresize = recize_notes;
- </script>
+  </script>
 </body>
 
 </html>
